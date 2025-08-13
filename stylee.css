@@ -1,0 +1,417 @@
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f5f7fa;
+  color: #2c3e50;
+  line-height: 1.6;
+}
+
+/* Top frame styles */
+.topframe-body {
+  background: linear-gradient(90deg, #1e3550, #536a81);
+  color: #ecf0f1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 100px;
+  font-weight: 700;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+  font-size: 22px;
+  user-select: none;
+}
+
+.topframe-logo {
+  font-size: 28px;
+  font-weight: 900;
+  color: #f39c12;
+  letter-spacing: 2px;
+}
+
+.topframe-nav a {
+  color: #ecf0f1;
+  text-decoration: none;
+  margin-left: 30px;
+  font-weight: 600;
+  transition: color 0.3s ease;
+  padding: 6px 10px;
+  border-radius: 5px;
+}
+
+.topframe-nav a:hover,
+.topframe-nav a:focus {
+  color: #f39c12;
+  background: rgba(243, 156, 18, 0.15);
+  outline: none;
+}
+
+/* Left frame styles */
+.leftframe-body {
+  background-color: #7b8e99;
+  padding: 25px 20px;
+  border-right: 2px solid #ddd;
+  height: 100vh;
+  font-weight: 600;
+  box-shadow: 3px 0 10px rgba(0,0,0,0.05);
+}
+
+.leftframe-body h3 {
+  margin-bottom: 25px;
+  font-size: 22px;
+  color: #34495e;
+  border-bottom: 2px solid #f39c12;
+  padding-bottom: 8px;
+  letter-spacing: 1px;
+}
+
+.leftframe-body a {
+  display: block;
+  margin-bottom: 18px;
+  color: #11253a;
+  text-decoration: none;
+  font-size: 18px;
+  border-left: 4px solid transparent;
+  padding-left: 12px;
+  transition: all 0.3s ease;
+  border-radius: 3px;
+}
+
+.leftframe-body a:hover,
+.leftframe-body a:focus {
+  color: #f39c12;
+  border-left-color: #f39c12;
+  background: #aeb1b6;
+  outline: none;
+}
+
+/* Right frame content */
+.rightframe-body {
+  padding: 30px 40px;
+  background-color: #9ca3cc;
+  min-height: 100vh;
+  box-shadow: inset 3px 0 10px rgba(0,0,0,0.03);
+}
+
+/* Login page table */
+.login-table {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 600px;
+  margin-top: 20px;
+  font-size: 16px;
+}
+
+.login-table th, .login-table td {
+  border: 1px solid #ddd;
+  padding: 12px 15px;
+  text-align: left;
+  background-color: #fefefe;
+  transition: background-color 0.3s ease;
+}
+
+.login-table th {
+  background-color: #f9f9f9;
+  font-weight: 700;
+  color: #34495e;
+}
+
+/* Login form elements */
+.login-form label {
+  display: inline-block;
+  width: 80px;
+  margin-right: 15px;
+  font-weight: 600;
+  color: #34495e;
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+  padding: 8px 10px;
+  width: 220px;
+  border: 1.8px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+.login-form input[type="text"]:focus,
+.login-form input[type="password"]:focus {
+  border-color: #f39c12;
+  outline: none;
+}
+
+/* Buttons */
+.login-form input[type="submit"],
+.login-form input[type="reset"] {
+  padding: 10px 25px;
+  margin: 20px 15px 0 0;
+  cursor: pointer;
+  font-weight: 700;
+  border-radius: 6px;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.login-form input[type="submit"] {
+  background-color: #f39c12;
+  color: white;
+}
+.register-form input[type="Register"] {
+  background-color: #f39c12;
+  color: white;
+}
+
+.login-form input[type="submit"]:hover {
+  background-color: #d78c0e;
+}
+
+.login-form input[type="reset"] {
+  background-color: #bdc3c7;
+  color: #2c3e50;
+}
+
+.login-form input[type="reset"]:hover {
+  background-color: #95a5a6;
+}
+
+/* Catalogue table */
+.catalogue-table {
+  width: 100%;
+  border-collapse: collapse;
+  max-width: 900px;
+  margin-top: 25px;
+  font-size: 16px;
+}
+
+.catalogue-table th, .catalogue-table td {
+  border: 1px solid #ddd;
+  padding: 12px 15px;
+  vertical-align: top;
+  text-align: left;
+  background-color: #fff;
+}
+
+.catalogue-table th {
+  background-color: #f4f6f7;
+  font-weight: 700;
+  color: #34495e;
+}
+
+.catalogue-table img {
+  max-width: 60px;
+  height: auto;
+  border-radius: 5px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.catalogue-table button {
+  background-color: #f39c12;
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-weight: 700;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 3px 6px rgba(243, 156, 18, 0.5);
+}
+
+.catalogue-table button:hover {
+  background-color: #d78c0e;
+  box-shadow: 0 5px 10px rgba(215, 140, 14, 0.7);
+}
+
+/* Responsive improvements for smaller widths */
+@media (max-width: 768px) {
+  .topframe-body {
+    flex-wrap: wrap;
+    justify-content: center;
+    font-size: 16px;
+  }
+  .topframe-nav a {
+    margin-left: 15px;
+    padding: 6px 8px;
+  }
+  .leftframe-body {
+    height: auto;
+    padding: 15px 10px;
+  }
+  .catalogue-table img {
+    max-width: 60px;
+  }
+}
+/* ===== Shopping Cart Styles ===== */
+.cart-container {
+  max-width: 1000px;
+  margin: 50px auto;
+  padding: 20px;
+  background: rgba(201, 204, 211, 0.95);
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  justify-content: center;
+}
+.cart-body {
+  background-color: #7b8e99;
+  padding: 25px 20px;
+  border-right: 2px solid #ddd;
+  height: 100vh;
+  font-weight: 600;
+  box-shadow: 3px 0 10px rgba(57, 57, 61, 0.05);
+}
+.cart-title {
+
+  text-align: center;
+  color: rgb(7, 43, 71);
+  font-size: 28px;
+  margin-bottom: 15px;
+  padding-bottom: 5px;
+
+}
+
+.cart-table {
+  width: 80%; /* slightly smaller than full width for margins */
+  margin: 50px auto; /* centers the table horizontally and adds top/bottom space */
+  border-collapse: collapse;
+  border: 20px solid #3a395a; /* visible border around table */
+  box-shadow:  rgba(255, 255, 255, 0.05);
+}
+
+.cart-table th,
+.cart-table td {
+  padding: 12px;
+  border: 2px solid #2a2a2b;
+  text-align: center;
+  color: rgb(17, 17, 17);
+}
+
+.cart-table th {
+  font-size: 18px;
+  background-color: rgba(205, 204, 223, 0.1);
+}
+.cart-table td {
+  background-color: #f9f9f9;
+  font-size: 16px;
+}
+
+.cart-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+
+}
+
+.cart-table tr:hover {
+  background-color: #4e2323;
+}
+
+.cart-table input[type="number"] {
+  width: 60px;
+  padding: 5px;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+}
+
+.remove-btn {
+  background: #e74c3c;
+  color: white;
+  border: none;
+  padding: 5px 8px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.remove-btn:hover {
+  background: #c0392b;
+}
+
+.empty-message {
+  text-align: center;
+  font-size: 18px;
+  color: #c0392b;
+}
+
+.catalogue-link {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 16px;
+}
+
+.catalogue-link a {
+  color: #2980b9;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.catalogue-link a:hover {
+  text-decoration: underline;
+}
+.register-table {
+  border-collapse: collapse;
+  margin: auto;
+  border: 2px solid #555;
+  background: #fff;
+  box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
+}
+
+.register-table td {
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+}
+
+.register-table label {
+  font-weight: bold;
+}
+
+.register-table input[type="text"],
+.register-table input[type="password"],
+.register-table input[type="email"],
+.register-table input[type="tel"],
+.register-table select,
+.register-table textarea {
+  width: 100%;
+  padding: 7px;
+  border: 1px solid #888;
+  border-radius: 4px;
+  outline: none;
+}
+
+.register-table input[type="text"]:focus,
+.register-table input[type="password"]:focus,
+.register-table input[type="email"]:focus,
+.register-table input[type="tel"]:focus,
+.register-table select:focus,
+.register-table textarea:focus {
+  border-color: #4CAF50;
+}
+
+.register-table input[type="submit"] {
+  background: #4CAF50;
+  color: white;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.register-table input[type="submit"]:hover {
+  background: #45a049;
+}
+
+.message {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.success {
+  color: green;
+  font-weight: bold;
+}
+
+.error {
+  color: red;
+  font-weight: bold;
+}
