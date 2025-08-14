@@ -7,11 +7,7 @@
 <body>
 
   <!-- Success / Error Message -->
-  <div class="message">
-    <!-- Uncomment the one you want to test -->
-    <!-- <p class="success">Successfully Registered!</p> -->
-    <!-- <p class="error">Please fill in all required fields.</p> -->
-  </div>
+  <div class="message"></div>
 
   <form class="register-form" action="#" method="post">
     <table class="register-table">
@@ -23,6 +19,11 @@
       <tr>
         <td><label for="password">Password:</label></td>
         <td><input type="password" id="password" name="password" required></td>
+      </tr>
+
+      <tr>
+        <td><label for="confirm-password">Confirm Password:</label></td>
+        <td><input type="password" id="confirm-password" name="confirm-password" required></td>
       </tr>
 
       <tr>
@@ -50,7 +51,9 @@
             <option value="">Day</option>
             <!-- Days -->
             <script>
-              for(let i=1; i<=31; i++){document.write(`<option value="${i}">${i}</option>`);}
+              for(let i=1; i<=31; i++){
+                document.write(`<option value="${i}">${i}</option>`);
+              }
             </script>
           </select>
 
@@ -74,7 +77,9 @@
             <option value="">Year</option>
             <!-- Years -->
             <script>
-              for(let y=1970; y<=2025; y++){document.write(`<option value="${y}">${y}</option>`);}
+              for(let y=1970; y<=2025; y++){
+                document.write(`<option value="${y}">${y}</option>`);
+              }
             </script>
           </select>
         </td>
@@ -101,7 +106,89 @@
         </td>
       </tr>
     </table>
-  </form>
+  </form> 
+  <script>
+    const form = document.querySelector('.register-form');
+    const messageDiv = document.querySelector('.message');
+
+    const nameInput = document.getElementById('Name');
+    const emailInput = document.getElementById('email');
+    const passwordInput = document.getElementById('password');
+    const confirmPasswordInput = document.getElementById('confirm-password');
+
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    const nameRegex = /^[a-zA-Z\s]{2,}$/;
+
+    function validateName(name) {
+        return nameRegex.test(name);
+    }
+
+    function validateEmail(email) {
+        return emailRegex.test(email);
+    }
+    
+    function showMessage(message, color) {
+        messageDiv.textContent = message;
+        messageDiv.style.color = color;
+    }
+    nameInput.addEventListener('blur', () => {
+        if (!validateName(nameInput.value.trim())) {
+            showMessage('Invalid name', 'red');
+        } else {
+            showMessage('', '');
+        }
+    });
+
+    emailInput.addEventListener('blur', () => {
+        if (!validateEmail(emailInput.value.trim())) {
+            showMessage('Invalid email format', 'red');
+        } else {
+            showMessage('', '');
+        }
+    });
+
+    confirmPasswordInput.addEventListener('blur', () => {
+        if (passwordInput.value !== confirmPasswordInput.value) {
+            showMessage('Passwords do not match', 'red');
+        } else {
+            showMessage('', '');
+        }
+    });
+
+    form.addEventListener('submit', function(event) {
+        
+        showMessage('', '');
+
+        const name = nameInput.value.trim();
+        const email = emailInput.value.trim();
+        const password = passwordInput.value;
+        const confirmPassword = confirmPasswordInput.value;
+
+        let isValid = true;
+
+        if (!validateName(name)) {
+            isValid = false;
+            showMessage('Invalid name', 'red');
+            nameInput.focus();
+        } else if (!validateEmail(email)) {
+            isValid = false;
+            showMessage('Invalid email', 'red');
+            emailInput.focus();
+        } else if (password !== confirmPassword) {
+            isValid = false;
+            showMessage('Passwords do not match!', 'red');
+            passwordInput.focus();
+        }
+
+        if (!isValid) {
+            event.preventDefault();
+        } else {
+            showMessage('Form submitted successfully!', 'green');
+        }
+    });
+</script>
+
+  
 
 </body>
 </html>
