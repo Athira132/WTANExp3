@@ -1,194 +1,234 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Register Page</title>
-  <link rel="stylesheet" href="stylee.css">
+    <title>Register Page</title>
+    <link rel="stylesheet" href="stylee.css">
 </head>
 <body>
 
-  <!-- Success / Error Message -->
-  <div class="message"></div>
+    <div class="message"></div>
 
-  <form class="register-form" action="#" method="post">
-    <table class="register-table">
-      <tr>
-        <td><label for="Name">Name:</label></td>
-        <td><input type="text" id="Name" name="Name" required></td>
-      </tr>
+    <form class="register-form" action="#" method="post">
+        <table class="register-table">
+            <tr>
+                <td><label for="Name">Name:</label></td>
+                <td><input type="text" id="Name" name="Name" required></td>
+            </tr>
+            <tr>
+                <td><label for="password">Password:</label></td>
+                <td><input type="password" id="password" name="password" required></td>
+            </tr>
+            <tr>
+                <td><label for="confirm-password">Confirm Password:</label></td>
+                <td><input type="password" id="confirm-password" name="confirm-password" required></td>
+            </tr>
+            <tr>
+                <td><label for="email">E-mail ID:</label></td>
+                <td><input type="email" id="email" name="email" required></td>
+            </tr>
+            <tr>
+                <td><label for="phone">Phone Number:</label></td>
+                <td><input type="tel" id="phone" name="phone" required></td>
+            </tr>
+            <tr>
+                <td>Sex:</td>
+                <td>
+                    <input type="radio" name="sex" value="Male" required> Male
+                    <input type="radio" name="sex" value="Female" required> Female
+                </td>
+            </tr>
+            <tr>
+                <td>Date of Birth:</td>
+                <td>
+                    <select name="dob-day" required>
+                        <option value="">Day</option>
+                        <script>
+                            for (let i = 1; i <= 31; i++) {
+                                document.write(`<option value="${i}">${i}</option>`);
+                            }
+                        </script>
+                    </select>
+                    <select name="dob-month" required>
+                        <option value="">Month</option>
+                        <option>January</option>
+                        <option>February</option>
+                        <option>March</option>
+                        <option>April</option>
+                        <option>May</option>
+                        <option>June</option>
+                        <option>July</option>
+                        <option>August</option>
+                        <option>September</option>
+                        <option>October</option>
+                        <option>November</option>
+                        <option>December</option>
+                    </select>
+                    <select name="dob-year" required>
+                        <option value="">Year</option>
+                        <script>
+                            for (let y = 1970; y <= 2025; y++) {
+                                document.write(`<option value="${y}">${y}</option>`);
+                            }
+                        </script>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Languages Known:</td>
+                <td>
+                    <input type="checkbox" name="lang" value="English"> English
+                    <input type="checkbox" name="lang" value="Telugu"> Telugu
+                    <input type="checkbox" name="lang" value="Hindi"> Hindi
+                    <input type="checkbox" name="lang" value="Tamil"> Tamil
+                </td>
+            </tr>
+            <tr>
+                <td><label for="address">Address:</label></td>
+                <td><textarea id="address" name="address" rows="3" required></textarea></td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align:center;">
+                    <input type="submit" value="Register">
+                </td>
+            </tr>
+        </table>
+    </form>
 
-      <tr>
-        <td><label for="password">Password:</label></td>
-        <td><input type="password" id="password" name="password" required></td>
-      </tr>
+    <script>
+        const form = document.querySelector('.register-form');
+        const messageDiv = document.querySelector('.message');
+        const nameInput = document.getElementById('Name');
+        const emailInput = document.getElementById('email');
+        const passwordInput = document.getElementById('password');
+        const confirmPasswordInput = document.getElementById('confirm-password');
+        const phoneInput = document.getElementById('phone');
+        const addressInput = document.getElementById('address');
 
-      <tr>
-        <td><label for="confirm-password">Confirm Password:</label></td>
-        <td><input type="password" id="confirm-password" name="confirm-password" required></td>
-      </tr>
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        const nameRegex = /^[a-zA-Z\s]+$/;  // only letters & spaces
+        const phoneRegex = /^[0-9]{10}$/;
+        const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/;
 
-      <tr>
-        <td><label for="email">E-mail ID:</label></td>
-        <td><input type="email" id="email" name="email" required></td>
-      </tr>
-
-      <tr>
-        <td><label for="phone">Phone Number:</label></td>
-        <td><input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required></td>
-      </tr>
-
-      <tr>
-        <td>Sex:</td>
-        <td>
-          <input type="radio" name="sex" value="Male" required> Male
-          <input type="radio" name="sex" value="Female" required> Female
-        </td>
-      </tr>
-
-      <tr>
-        <td>Date of Birth:</td>
-        <td>
-          <select name="dob-day" required>
-            <option value="">Day</option>
-            <!-- Days -->
-            <script>
-              for(let i=1; i<=31; i++){
-                document.write(`<option value="${i}">${i}</option>`);
-              }
-            </script>
-          </select>
-
-          <select name="dob-month" required>
-            <option value="">Month</option>
-            <option>January</option>
-            <option>February</option>
-            <option>March</option>
-            <option>April</option>
-            <option>May</option>
-            <option>June</option>
-            <option>July</option>
-            <option>August</option>
-            <option>September</option>
-            <option>October</option>
-            <option>November</option>
-            <option>December</option>
-          </select>
-
-          <select name="dob-year" required>
-            <option value="">Year</option>
-            <!-- Years -->
-            <script>
-              for(let y=1970; y<=2025; y++){
-                document.write(`<option value="${y}">${y}</option>`);
-              }
-            </script>
-          </select>
-        </td>
-      </tr>
-
-      <tr>
-        <td>Languages Known:</td>
-        <td>
-          <input type="checkbox" name="lang" value="English"> English
-          <input type="checkbox" name="lang" value="Telugu"> Telugu
-          <input type="checkbox" name="lang" value="Hindi"> Hindi
-          <input type="checkbox" name="lang" value="Tamil"> Tamil
-        </td>
-      </tr>
-
-      <tr>
-        <td><label for="address">Address:</label></td>
-        <td><textarea id="address" name="address" rows="3" required></textarea></td>
-      </tr>
-
-      <tr>
-        <td colspan="2" style="text-align:center;">
-          <input type="submit" value="Register">
-        </td>
-      </tr>
-    </table>
-  </form> 
-  <script>
-    const form = document.querySelector('.register-form');
-    const messageDiv = document.querySelector('.message');
-
-    const nameInput = document.getElementById('Name');
-    const emailInput = document.getElementById('email');
-    const passwordInput = document.getElementById('password');
-    const confirmPasswordInput = document.getElementById('confirm-password');
-
-    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    const nameRegex = /^[a-zA-Z\s]{2,}$/;
-
-    function validateName(name) {
-        return nameRegex.test(name);
-    }
-
-    function validateEmail(email) {
-        return emailRegex.test(email);
-    }
-    
-    function showMessage(message, color) {
-        messageDiv.textContent = message;
-        messageDiv.style.color = color;
-    }
-    nameInput.addEventListener('blur', () => {
-        if (!validateName(nameInput.value.trim())) {
-            showMessage('Invalid name', 'red');
-        } else {
-            showMessage('', '');
-        }
-    });
-
-    emailInput.addEventListener('blur', () => {
-        if (!validateEmail(emailInput.value.trim())) {
-            showMessage('Invalid email format', 'red');
-        } else {
-            showMessage('', '');
-        }
-    });
-
-    confirmPasswordInput.addEventListener('blur', () => {
-        if (passwordInput.value !== confirmPasswordInput.value) {
-            showMessage('Passwords do not match', 'red');
-        } else {
-            showMessage('', '');
-        }
-    });
-
-    form.addEventListener('submit', function(event) {
-        
-        showMessage('', '');
-
-        const name = nameInput.value.trim();
-        const email = emailInput.value.trim();
-        const password = passwordInput.value;
-        const confirmPassword = confirmPasswordInput.value;
-
-        let isValid = true;
-
-        if (!validateName(name)) {
-            isValid = false;
-            showMessage('Invalid name', 'red');
-            nameInput.focus();
-        } else if (!validateEmail(email)) {
-            isValid = false;
-            showMessage('Invalid email', 'red');
-            emailInput.focus();
-        } else if (password !== confirmPassword) {
-            isValid = false;
-            showMessage('Passwords do not match!', 'red');
-            passwordInput.focus();
+        function showMessage(message, color) {
+            messageDiv.textContent = message;
+            messageDiv.style.color = color;
         }
 
-        if (!isValid) {
+        // Name validation
+        nameInput.addEventListener('blur', () => {
+            const nameVal = nameInput.value.trim();
+            if (nameVal.length < 3) {
+                showMessage('Name must be at least 3 characters long', 'red');
+            } else if (!nameRegex.test(nameVal)) {
+                showMessage('Name must contain only letters and spaces', 'red');
+            } else {
+                showMessage('', '');
+            }
+        });
+
+        emailInput.addEventListener('blur', () => {
+            if (!emailRegex.test(emailInput.value.trim())) {
+                showMessage('Invalid email format', 'red');
+            } else {
+                showMessage('', '');
+            }
+        });
+
+        phoneInput.addEventListener('blur', () => {
+            const phoneVal = phoneInput.value.trim();
+            if (!phoneRegex.test(phoneVal)) {
+                if (/\D/.test(phoneVal)) {
+                    showMessage('Phone number must contain digits only', 'red');
+                } else {
+                    showMessage('Phone number must be exactly 10 digits', 'red');
+                }
+            } else {
+                showMessage('', '');
+            }
+        });
+
+        passwordInput.addEventListener('blur', () => {
+            if (!passwordRegex.test(passwordInput.value)) {
+                showMessage('Password must be at least 6 characters and include letters & numbers', 'red');
+            } else {
+                showMessage('', '');
+            }
+        });
+
+        confirmPasswordInput.addEventListener('blur', () => {
+            if (passwordInput.value !== confirmPasswordInput.value) {
+                showMessage('Passwords do not match', 'red');
+            } else {
+                showMessage('', '');
+            }
+        });
+
+        // On submit
+        form.addEventListener('submit', function (event) {
             event.preventDefault();
-        } else {
-            showMessage('Form submitted successfully!', 'green');
-        }
-    });
-</script>
+            showMessage('', '');
 
-  
+            const name = nameInput.value.trim();
+            const email = emailInput.value.trim();
+            const password = passwordInput.value;
+            const confirmPassword = confirmPasswordInput.value;
+            const phone = phoneInput.value.trim();
+            const address = addressInput.value.trim();
+            const sex = document.querySelector('input[name="sex"]:checked')?.value;
+            const day = form["dob-day"].value;
+            const month = form["dob-month"].value;
+            const year = form["dob-year"].value;
+            const languages = Array.from(form.querySelectorAll('input[name="lang"]:checked')).map(cb => cb.value);
 
+            let isValid = true;
+
+            if (localStorage.getItem(email)) {
+                isValid = false;
+                showMessage('User with this email already exists.', 'red');
+            } else if (name.length < 3) {
+                isValid = false;
+                showMessage('Name must be at least 3 characters long', 'red');
+                nameInput.focus();
+            } else if (!nameRegex.test(name)) {
+                isValid = false;
+                showMessage('Name must contain only letters and spaces', 'red');
+                nameInput.focus();
+            } else if (!emailRegex.test(email)) {
+                isValid = false;
+                showMessage('Invalid email format', 'red');
+                emailInput.focus();
+            } else if (!phoneRegex.test(phone)) {
+                isValid = false;
+                if (/\D/.test(phone)) {
+                    showMessage('Phone number must contain digits only', 'red');
+                } else {
+                    showMessage('Phone number must be exactly 10 digits', 'red');
+                }
+                phoneInput.focus();
+            } else if (!passwordRegex.test(password)) {
+                isValid = false;
+                showMessage('Password must be at least 6 characters and include letters & numbers', 'red');
+                passwordInput.focus();
+            } else if (password !== confirmPassword) {
+                isValid = false;
+                showMessage('Passwords do not match!', 'red');
+                confirmPasswordInput.focus();
+            }
+
+            if (isValid) {
+                const user = {
+                    name, email, password, phone, sex,
+                    dob: `${day}-${month}-${year}`,
+                    languages, address
+                };
+                localStorage.setItem(email, JSON.stringify(user));
+                showMessage('Registration successful! Redirecting to login...', 'green');
+
+                setTimeout(() => {
+                    window.location.href = 'login.html';
+                }, 1500);
+            }
+        });
+    </script>
 </body>
 </html>
