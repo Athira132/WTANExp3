@@ -3,6 +3,20 @@
 <head>
     <title>Register Page</title>
     <link rel="stylesheet" href="stylee.css">
+    <style>
+        .message {
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .toggle-btn {
+            margin-left: 5px;
+            padding: 4px 8px;
+            font-size: 0.8em;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
 
@@ -16,11 +30,17 @@
             </tr>
             <tr>
                 <td><label for="password">Password:</label></td>
-                <td><input type="password" id="password" name="password" required></td>
+                <td>
+                    <input type="password" id="password" name="password" required>
+                    <button type="button" class="toggle-btn" onclick="togglePassword('password', this)">Show</button>
+                </td>
             </tr>
             <tr>
                 <td><label for="confirm-password">Confirm Password:</label></td>
-                <td><input type="password" id="confirm-password" name="confirm-password" required></td>
+                <td>
+                    <input type="password" id="confirm-password" name="confirm-password" required>
+                    <button type="button" class="toggle-btn" onclick="togglePassword('confirm-password', this)">Show</button>
+                </td>
             </tr>
             <tr>
                 <td><label for="email">E-mail ID:</label></td>
@@ -95,6 +115,17 @@
     </form>
 
     <script>
+        function togglePassword(fieldId, btn) {
+            const input = document.getElementById(fieldId);
+            if (input.type === "password") {
+                input.type = "text";
+                btn.textContent = "Hide";
+            } else {
+                input.type = "password";
+                btn.textContent = "Show";
+            }
+        }
+
         const form = document.querySelector('.register-form');
         const messageDiv = document.querySelector('.message');
         const nameInput = document.getElementById('Name');
@@ -105,7 +136,7 @@
         const addressInput = document.getElementById('address');
 
         const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-        const nameRegex = /^[a-zA-Z\s]+$/;  // only letters & spaces
+        const nameRegex = /^[a-zA-Z\s]+$/;
         const phoneRegex = /^[0-9]{10}$/;
         const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/;
 
@@ -114,7 +145,6 @@
             messageDiv.style.color = color;
         }
 
-        // Name validation
         nameInput.addEventListener('blur', () => {
             const nameVal = nameInput.value.trim();
             if (nameVal.length < 3) {
@@ -163,7 +193,6 @@
             }
         });
 
-        // On submit
         form.addEventListener('submit', function (event) {
             event.preventDefault();
             showMessage('', '');
