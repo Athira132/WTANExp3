@@ -98,6 +98,9 @@ body {
 }
 
 /* Login page table */
+.login-form{
+     background-color:#dde4f1 ;
+}
 .login-table {
   border-collapse: collapse;
   width: 100%;
@@ -110,7 +113,7 @@ body {
   border: 1px solid #ddd;
   padding: 12px 15px;
   text-align: left;
-  background-color: #fefefe;
+  background-color:#dde4f1 ;
   transition: background-color 0.3s ease;
 }
 
@@ -414,4 +417,5 @@ body {
 .error {
   color: red;
   font-weight: bold;
+
 }
