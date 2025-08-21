@@ -101,6 +101,25 @@ body {
 .login-form{
      background-color:#dde4f1 ;
 }
+.toggle-btn {
+            margin-left: 5px;
+            padding: 4px 8px;
+            font-size: 0.8em;
+            cursor: pointer;
+        }
+
+.message {
+            text-align: center;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+.login-table {
+       margin: 50px auto;
+        }
+
+.login-form div {
+            margin-bottom: 10px;
+        }
 .login-table {
   border-collapse: collapse;
   width: 100%;
@@ -417,5 +436,4 @@ body {
 .error {
   color: red;
   font-weight: bold;
-
 }
